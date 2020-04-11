@@ -1,3 +1,2 @@
 # Gather
-test
-test2
+CMPE 133 Meetup Application Project

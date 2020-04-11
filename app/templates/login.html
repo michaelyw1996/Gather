@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Bootstrap Style (Unused)(Probably) -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<br><br><br>
+<h1>Sign In</h1>
+<body bgcolor="#E6E6FA" class="text-center">
+  <form class="form-signin" action="" method="post">
+  {{ form.hidden_tag() }}
+    {{ form.username.label(class="sr-only") }}<br>
+    {{ form.username(size=32, placeholder="Username")}}
+  <p>
+    {{ form.password.label (class="sr only")}}<br>
+    {{ form.password(size=32, placeholder="Password") }}
+  </p>
+  <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+  <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+  <br><br>
+  <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+  <p class="mt-5 mb-3 text-muted">&copy; Team 3</p>
+  </form>
+</body>
+{% endblock %}

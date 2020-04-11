@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<h1>Post Activity</h1>
+
+<form action="#" method="post">
+  <div class="form-group">
+    <label for="usersname">Your Name:</label>
+    <input type="text" maxlength="50" name="usersname" placeholder="Your Name">
+    <br><br>
+    <label for="activityTitle">Title:</label>
+    <input type="text" maxlength="50" name="activityTitle" placeholder="Your Post">
+    <br><br>
+    <label for="activityType">Activity:</label>
+    <input type="text"  maxlength="50" name="activityType" placeholder="Your Activity">
+    <br><br>
+    <label for="activityDescription">Activity Description:</label>
+    <input type="text" maxlength="50" name="ActivityDescription" placeholder="Activity Description">
+    <br><br>
+    <button class="btn btn-lg btn-primary" type="submit">Create</button>
+  </div>
+</form>
+
+
+
+{% endblock %}

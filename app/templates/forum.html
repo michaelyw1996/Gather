@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<html>
+<body>
+  <br><br>
+  <h1 class="text-center">Forum Posts</h1>
+  <br>
+  <p>
+    {% for forum in forums %}
+      <hr>
+      <p> {{forum.title}} says {{forum.author}}</p>
+    {% endfor %}
+  </p>
+</body>
+</html>
+{% endblock %}
