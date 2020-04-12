@@ -61,10 +61,10 @@ def register():
 @app.route('/createPost',methods=['GET', 'POST'])
 def createPost():
     form=CreateListForm()
-        db.session.add(createPost)
-        db.session.commit()
-        return redirect(url_for('index'))
-        return render_template('createPost.html', form=form)
+    db.session.add(createPost)
+    db.session.commit()
+    return render_template('createPost.html', form=form)
+    
 
 @app.route('/viewlist')
 def viewlist():
