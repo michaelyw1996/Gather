@@ -10,6 +10,8 @@ from flask import request
 from werkzeug.urls import url_parse
 from flask import current_app as app
 from . import login_manager
+from datetime import datetime
+
 
 @app.route('/')
 @app.route('/index')
@@ -56,6 +58,12 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+    
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
 
 @app.route('/createPost',methods=['GET', 'POST'])
 def createPost():
@@ -91,6 +99,16 @@ def newPost():
         return redirect(url_for('index'))
     else:
         return render_template('newforumpost.html')
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = [
+        {'author': user, 'body': 'Test post #1'},
+        {'author': user, 'body': 'Test post #2'}
+    ]
+    return render_template('user.html', user=user, posts=posts)
 
 @login_manager.user_loader
 def load_user(user_id):
