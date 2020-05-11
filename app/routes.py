@@ -8,7 +8,6 @@ from flask_login import logout_user
 from flask_login import login_required
 from flask import request
 from werkzeug.urls import url_parse
-from .forms import CreateListForm, HomeForm
 from flask import current_app as app
 from . import login_manager
 
@@ -60,15 +59,19 @@ def register():
 
 @app.route('/createPost',methods=['GET', 'POST'])
 def createPost():
-    form=CreateListForm()
-    db.session.add(createPost)
-    db.session.commit()
-    return render_template('createPost.html', form=form)
-    
+    if request.method == 'POST':
+        createPost = ActivityPost(name=request.form['name'], activityTitle=request.form['activityTitle'], activityType=request.form['activityType'], activityDescription=request.form['activityDescription'])
+        db.session.add(createPost)
+        db.session.commit()
+        return redirect(url_for('index'))
+    else:
+        return render_template('createPost.html')
+
 
 @app.route('/viewlist')
 def viewlist():
-    return render_template('viewlist.html')
+    viewMyPosts = db.session.query(ActivityPost).all()
+    return render_template('viewlist.html', viewMyPosts=viewMyPosts)
 
 @app.route('/viewcalender')
 def viewcalender():

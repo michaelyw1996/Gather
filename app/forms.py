@@ -26,17 +26,3 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
-
-class CreateListForm(FlaskForm):
-    name = StringField('My Name')
-    activityDescription = StringField('Activity Description')
-    activityTitle = StringField('Activity Title')
-    activityType = StringField('Activity Type')
-    submitListItem = SubmitField('Submit')
-
-class HomeForm(FlaskForm):
-    toCreateList = SubmitField('Create List')
-    toViewList = SubmitField('View List')
-    toViewCalender = SubmitField('View Calender')
-    toForum = SubmitField('View Forum')
-    toForumNew = SubmitField('New Forum Post')
