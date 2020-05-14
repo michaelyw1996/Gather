@@ -32,6 +32,10 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+        <p>
+            {{ form.accountType.label }}<br>
+            {{ form.accountType }}<br>
+        </p>
         <button class="btn btn-lg btn-primary" type="submit">Register</button>
         <!--p>{{ form.submit() }}</p-->
     </form>

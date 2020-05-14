@@ -4,12 +4,23 @@
 <html>
 <body>
   <br><br>
-  <h1 class="text-center">Forum Posts</h1>
+  <h1 class="text-center">User Posts</h1>
   <br>
   <p>
-    {% for viewMyPosts in viewMyPosts %}
-      <hr>
-      <p> {{viewMyPosts.activityTitle}} says {{viewMyPosts.activityType}}</p>
+    {% for view in viewMyPosts %}
+      <br>
+      <a href="{{ url_for('user', username=view.yourName) }}">
+          <p> Post Author</p>
+      </a>
+      <br>
+      <p> Tester: {{view.yourName}}</p>
+      <p> Activty Title: {{view.activityTitle}}</p>
+      <br>
+      <p> Activity Location: {{view.activityType}}</p>
+      <br>
+      <p> Activity Description: {{view.activityDescription}}</p>
+      <br>
+      <p>Activity Posted On: {{view.timestamp}}</p>
     {% endfor %}
   </p>
 </body>
