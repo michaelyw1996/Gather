@@ -13,9 +13,11 @@ from . import login_manager
 from datetime import datetime
 from .forms import EditProfileForm
 
-
-
 @app.route('/')
+@app.route('/intropage')
+def test():
+    return render_template('intropage.html', title='Welcome')
+
 @app.route('/index')
 @login_required
 def index():

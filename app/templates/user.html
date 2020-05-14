@@ -6,8 +6,9 @@
     <br>
     {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
     <br>
+    <p>About Me:</p>
     {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
-    <br><
+    <br>
     {% if user.accountType %}<p>{{ "You are a business user!" }}</p>{% endif %}
     <br>
     {% if user == current_user %}

@@ -8,19 +8,19 @@
   <br>
   <p>
     {% for view in viewMyPosts %}
-      <br>
+    <div class="container">
+      <hr style="border width: 5px">
+    </div>
       <a href="{{ url_for('user', username=view.yourName) }}">
           <p> Post Author</p>
       </a>
-      <br>
-      <p> Tester: {{view.yourName}}</p>
       <p> Activty Title: {{view.activityTitle}}</p>
-      <br>
       <p> Activity Location: {{view.activityType}}</p>
-      <br>
       <p> Activity Description: {{view.activityDescription}}</p>
-      <br>
       <p>Activity Posted On: {{view.timestamp}}</p>
+      <div class="container">
+        <hr style="border width: 5px">
+      </div>
     {% endfor %}
   </p>
 </body>
