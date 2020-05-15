@@ -13,8 +13,16 @@
         </p>
         <p>
             {{ form.about_me.label }}<br>
-            {{ form.about_me(size=32, cols=50, rows=10) }}<br>
+            {{ form.about_me(size=80, cols=50, rows=10) }}<br>
             {% for error in form.about_me.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            <p>Your Links: </p>
+            <p><small>Please post a relevant link that people can use to contact you with.</small></p>
+            {{ form.links(size=80, cols=50, rows=10) }}<br>
+            {% for error in form.links.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>

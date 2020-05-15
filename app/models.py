@@ -13,6 +13,7 @@ class User(UserMixin, db.Model):
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
     accountType = db.Column(db.Boolean)
+    links = db.Column(db.String(150))
     myPosts = db.relationship('ActivityPost', backref='author', lazy='dynamic')
 
 
